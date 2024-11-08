@@ -18,7 +18,6 @@ void insertAtHead(int value){
 Node* traverse(int n){
   Node* temp = head;
   
-
   for(int i = 1 ; i < n && temp != nullptr; i++){
     temp = temp->next;
   }
@@ -115,6 +114,22 @@ Node* search(int n){
   return nullptr;  
 }
 
+void reverse(){
+  Node* current , *prev, *next;
+  current = head;
+  prev = nullptr;
+
+  while (current != nullptr){
+    next = current->next;
+    current->next = prev;
+    prev = current;
+    current = next;
+  }
+
+  head = prev;
+
+}
+
 void choice(){
   int n;
   cout<< "Chose on of the Following Option" << endl;
@@ -123,6 +138,7 @@ void choice(){
   cout<< "3. Delete at Head" << endl;
   cout<< "4. Delete at ith position" <<endl;
   cout<< "5. Search for an element x in the singly linked list and return its pointer" << endl;
+  cout<< "6. Reverse the Linked List" <<endl;
   cin>> n;
 
   if (n == 1){
@@ -159,10 +175,16 @@ void choice(){
 
   }
 
-  else if(n>5 || n<1){
+  if (n == 6){
+    reverse();
+  }
+
+  else if(n>6 || n<1){
     cout << "Invalid Option" << endl;
   }
 }
+
+
 
 int main(){
   cout << "**********************************************************************************" << endl;
@@ -174,5 +196,6 @@ int main(){
   cout<< "Singly linked list:  ";
   display();
   cout << endl;
+
   return 0;
 }
