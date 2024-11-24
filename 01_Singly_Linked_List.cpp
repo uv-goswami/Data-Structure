@@ -6,7 +6,7 @@ struct Node{
   Node* next;
 };
 
-struct Node* head;
+ Node* head;
 
 void insertAtHead(int value){
   Node* newNode = new Node();
@@ -63,7 +63,7 @@ void deleteInBetween(int i){
 
   else {
   Node* temp = traverse(i);
-  if(temp == nullptr){
+  if(temp == nullptr || i == 0){
     cout << "Position " << i << " does not exist" << endl;
   }
   else{
