@@ -9,7 +9,7 @@ struct Node{
  Node* head;
 
 void insertAtHead(int value){
-  Node* newNode = new Node();
+  Node* newNode = new Node(value);
   newNode -> data = value;
   newNode -> next = head;
   head = newNode;
